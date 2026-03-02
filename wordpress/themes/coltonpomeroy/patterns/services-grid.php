@@ -25,10 +25,7 @@
 		<div class="wp-block-column">
 			<!-- wp:group {"className":"cp-service-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|40","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40"}},"border":{"radius":"12px"}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group cp-service-card has-white-background-color has-background" style="border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
-				<!-- wp:paragraph {"fontSize":"xx-large"} -->
-				<p class="has-xx-large-font-size">&#128187;</p>
-				<!-- /wp:paragraph -->
-				<!-- wp:heading {"level":3,"fontFamily":"heading","fontSize":"x-large"} -->
+					<!-- wp:heading {"level":3,"fontFamily":"heading","fontSize":"x-large"} -->
 				<h3 class="wp-block-heading has-heading-font-family has-x-large-font-size">Web Development</h3>
 				<!-- /wp:heading -->
 				<!-- wp:paragraph {"textColor":"gray-500"} -->
@@ -46,10 +43,7 @@
 		<div class="wp-block-column">
 			<!-- wp:group {"className":"cp-service-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|40","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40"}},"border":{"radius":"12px"}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group cp-service-card has-white-background-color has-background" style="border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
-				<!-- wp:paragraph {"fontSize":"xx-large"} -->
-				<p class="has-xx-large-font-size">&#128241;</p>
-				<!-- /wp:paragraph -->
-				<!-- wp:heading {"level":3,"fontFamily":"heading","fontSize":"x-large"} -->
+					<!-- wp:heading {"level":3,"fontFamily":"heading","fontSize":"x-large"} -->
 				<h3 class="wp-block-heading has-heading-font-family has-x-large-font-size">App Development</h3>
 				<!-- /wp:heading -->
 				<!-- wp:paragraph {"textColor":"gray-500"} -->
@@ -67,10 +61,7 @@
 		<div class="wp-block-column">
 			<!-- wp:group {"className":"cp-service-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|40","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40"}},"border":{"radius":"12px"}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group cp-service-card has-white-background-color has-background" style="border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
-				<!-- wp:paragraph {"fontSize":"xx-large"} -->
-				<p class="has-xx-large-font-size">&#128161;</p>
-				<!-- /wp:paragraph -->
-				<!-- wp:heading {"level":3,"fontFamily":"heading","fontSize":"x-large"} -->
+					<!-- wp:heading {"level":3,"fontFamily":"heading","fontSize":"x-large"} -->
 				<h3 class="wp-block-heading has-heading-font-family has-x-large-font-size">Technical Consulting</h3>
 				<!-- /wp:heading -->
 				<!-- wp:paragraph {"textColor":"gray-500"} -->

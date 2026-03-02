@@ -13,6 +13,14 @@ img {
 	height: auto;
 }
 
+/* ---------- Smooth dark-mode color transition ---------- */
+body,
+.wp-block-group,
+.wp-block-column,
+.wp-block-columns {
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 /* ---------- Header ---------- */
 .dark-mode-toggle {
 	background: none;
@@ -24,70 +32,276 @@ img {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1.1rem;
-	transition: border-color 0.2s ease, background-color 0.2s ease;
+	transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
 .dark-mode-toggle:hover {
 	border-color: var(--wp--preset--color--copper);
 	background-color: var(--wp--preset--color--gray-50);
+	transform: scale(1.05);
 }
 
-.toggle-icon-dark {
+.dark-mode-toggle svg {
+	display: block;
+	transition: opacity 0.2s ease;
+}
+
+.dark-mode-toggle .toggle-icon-dark {
 	display: none;
 }
 
-[data-theme="dark"] .toggle-icon-light {
+[data-theme="dark"] .dark-mode-toggle .toggle-icon-light {
 	display: none;
 }
 
-[data-theme="dark"] .toggle-icon-dark {
-	display: inline;
+[data-theme="dark"] .dark-mode-toggle .toggle-icon-dark {
+	display: block;
+}
+
+/* ---------- Hero Portrait ---------- */
+.cp-hero-portrait {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+/* Decorative accent blob behind the photo */
+.cp-hero-portrait__accent {
+	position: absolute;
+	top: -12px;
+	right: -12px;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, var(--wp--preset--color--copper), var(--wp--preset--color--terra, #B8623D));
+	border-radius: 24px;
+	opacity: 0.15;
+	z-index: 0;
+	transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.cp-hero-portrait:hover .cp-hero-portrait__accent {
+	transform: translate(-4px, 4px);
+	opacity: 0.2;
+}
+
+/* Photo frame */
+.cp-hero-portrait__frame {
+	position: relative;
+	z-index: 1;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow:
+		0 8px 32px rgba(44, 44, 44, 0.12),
+		0 2px 8px rgba(44, 44, 44, 0.06);
+	border: 4px solid var(--wp--preset--color--white);
+	transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.cp-hero-portrait:hover .cp-hero-portrait__frame {
+	box-shadow:
+		0 16px 48px rgba(44, 44, 44, 0.16),
+		0 4px 12px rgba(196, 118, 59, 0.1);
+	transform: translateY(-4px);
+}
+
+.cp-hero-portrait__frame img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
+
+@media (max-width: 782px) {
+	/* Hide the portrait column on mobile — cleaner text-only hero */
+	.has-warm-fade-gradient-background .wp-block-column:last-child {
+		display: none;
+	}
 }
 
 /* ---------- Service Cards ---------- */
 .cp-service-card {
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	position: relative;
+	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 	box-shadow: 0 1px 3px rgba(44, 44, 44, 0.06);
+	border: 1px solid rgba(44, 44, 44, 0.06);
+}
+
+/* Copper accent bar at top of service cards */
+.cp-service-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: linear-gradient(90deg, var(--wp--preset--color--copper), var(--wp--preset--color--terra));
+	border-radius: 12px 12px 0 0;
+	opacity: 0;
+	transition: opacity 0.3s ease;
 }
 
 .cp-service-card:hover {
-	transform: translateY(-4px);
-	box-shadow: 0 8px 30px rgba(44, 44, 44, 0.12);
+	transform: translateY(-6px);
+	box-shadow: 0 12px 40px rgba(44, 44, 44, 0.12);
+}
+
+.cp-service-card:hover::before {
+	opacity: 1;
+}
+
+/* Animated "Learn more" link underline */
+.cp-service-card a {
+	text-decoration: none !important;
+	background-image: linear-gradient(var(--wp--preset--color--copper), var(--wp--preset--color--copper));
+	background-size: 0% 1px;
+	background-position: 0 100%;
+	background-repeat: no-repeat;
+	transition: background-size 0.3s ease, color 0.2s ease;
+}
+
+.cp-service-card a:hover {
+	background-size: 100% 1px;
 }
 
 /* ---------- Post Cards ---------- */
 .cp-post-card {
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 	box-shadow: 0 1px 3px rgba(44, 44, 44, 0.06);
+	border: 1px solid rgba(44, 44, 44, 0.06);
 	overflow: hidden;
 }
 
 .cp-post-card:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(44, 44, 44, 0.08);
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(44, 44, 44, 0.1);
+}
+
+/* Subtle image zoom on card hover */
+.cp-post-card img {
+	transition: transform 0.4s ease;
+}
+
+.cp-post-card:hover img {
+	transform: scale(1.03);
 }
 
 /* ---------- Portfolio Cards ---------- */
 .cp-portfolio-card {
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	position: relative;
+	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 	box-shadow: 0 1px 3px rgba(44, 44, 44, 0.06);
+	border: 1px solid rgba(44, 44, 44, 0.06);
 	overflow: hidden;
 }
 
 .cp-portfolio-card:hover {
-	transform: translateY(-4px);
-	box-shadow: 0 8px 30px rgba(44, 44, 44, 0.12);
+	transform: translateY(-6px);
+	box-shadow: 0 12px 40px rgba(44, 44, 44, 0.12);
+}
+
+.cp-portfolio-card img {
+	transition: transform 0.4s ease;
+}
+
+.cp-portfolio-card:hover img {
+	transform: scale(1.03);
 }
 
 /* ---------- Tech Badges ---------- */
 .cp-tech-badge {
-	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
 }
 
 .cp-tech-badge:hover {
 	border-color: var(--wp--preset--color--copper) !important;
 	box-shadow: 0 2px 8px rgba(196, 118, 59, 0.15);
+	transform: translateY(-2px);
+	background-color: rgba(196, 118, 59, 0.04) !important;
+}
+
+/* ---------- Stats Row Dividers ---------- */
+.has-gray-100-background-color > .wp-block-columns > .wp-block-column + .wp-block-column {
+	border-left: 1px solid var(--wp--preset--color--gray-200);
+}
+
+@media (max-width: 782px) {
+	.has-gray-100-background-color > .wp-block-columns > .wp-block-column + .wp-block-column {
+		border-left: none;
+		border-top: 1px solid var(--wp--preset--color--gray-200);
+		padding-top: var(--wp--preset--spacing--40);
+	}
+}
+
+/* ---------- Link hover underline animation ---------- */
+.wp-block-navigation a,
+.wp-block-group a:not(.wp-block-button__link):not(.wp-block-social-link-anchor) {
+	transition: color 0.2s ease;
+}
+
+/* Buttons — subtle scale + shadow on hover */
+.wp-block-button__link {
+	transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease !important;
+}
+
+.wp-block-button__link:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(196, 118, 59, 0.25);
+}
+
+.wp-block-button__link:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* ---------- Scroll-reveal animations ---------- */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(24px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.cp-reveal {
+	opacity: 0;
+}
+
+.cp-reveal.is-visible {
+	animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Stagger children within a visible section */
+.cp-reveal.is-visible .wp-block-column:nth-child(1) { animation-delay: 0s; }
+.cp-reveal.is-visible .wp-block-column:nth-child(2) { animation-delay: 0.1s; }
+.cp-reveal.is-visible .wp-block-column:nth-child(3) { animation-delay: 0.2s; }
+.cp-reveal.is-visible .wp-block-column:nth-child(4) { animation-delay: 0.3s; }
+
+/* Stagger the columns themselves */
+.cp-reveal.is-visible > .wp-block-columns > .wp-block-column {
+	opacity: 0;
+	animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ---------- Separator / divider refinement ---------- */
+.wp-block-separator.is-style-wide {
+	opacity: 0.3;
+}
+
+/* ---------- Pull quotes and blockquotes ---------- */
+.wp-block-quote {
+	transition: border-color 0.2s ease;
 }
 
 /* ---------- Contact Form ---------- */
@@ -114,6 +328,7 @@ img {
 	font-size: 0.875rem;
 	font-weight: 500;
 	color: var(--wp--preset--color--charcoal);
+	transition: color 0.2s ease;
 }
 
 .cp-form-field label .required {
@@ -130,7 +345,7 @@ img {
 	border-radius: 8px;
 	background: var(--wp--preset--color--white);
 	color: var(--wp--preset--color--charcoal);
-	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .cp-form-field input:focus,
@@ -151,21 +366,30 @@ img {
 	font-size: 1rem;
 	padding: 0.85rem 2rem;
 	background: var(--wp--preset--color--copper);
-	color: var(--wp--preset--color--white);
+	color: #FFFFFF;
 	border: none;
 	border-radius: 8px;
 	cursor: pointer;
-	transition: background-color 0.2s ease;
+	transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 	align-self: flex-start;
 }
 
 .cp-submit-btn:hover {
 	background: var(--wp--preset--color--copper-dark);
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(196, 118, 59, 0.25);
+}
+
+.cp-submit-btn:active {
+	transform: translateY(0);
+	box-shadow: none;
 }
 
 .cp-submit-btn:disabled {
 	opacity: 0.6;
 	cursor: not-allowed;
+	transform: none;
+	box-shadow: none;
 }
 
 .cp-form-status {
@@ -201,6 +425,7 @@ img {
 	border-radius: 8px;
 	background: var(--wp--preset--color--white);
 	color: var(--wp--preset--color--charcoal);
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cp-newsletter-row input[type="email"]:focus {
@@ -215,20 +440,83 @@ img {
 	font-size: 0.875rem;
 	padding: 0.65rem 1.25rem;
 	background: var(--wp--preset--color--copper);
-	color: var(--wp--preset--color--white);
+	color: #FFFFFF;
 	border: none;
 	border-radius: 8px;
 	cursor: pointer;
-	transition: background-color 0.2s ease;
+	transition: background-color 0.2s ease, transform 0.15s ease;
 	white-space: nowrap;
 }
 
 .cp-newsletter-row button:hover {
 	background: var(--wp--preset--color--copper-dark);
+	transform: translateY(-1px);
+}
+
+/* ---------- Footer refinement ---------- */
+.has-charcoal-background-color a {
+	transition: color 0.2s ease;
+}
+
+.has-charcoal-background-color a:hover {
+	color: var(--wp--preset--color--copper) !important;
+}
+
+/* Social link hover lift */
+.wp-block-social-links .wp-block-social-link {
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.wp-block-social-links .wp-block-social-link:hover {
+	transform: translateY(-2px);
+	opacity: 0.8;
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 782px) {
+
+	/* --- Mobile Header --- */
+	/* Hide CTA button on mobile — redundant with hero CTAs */
+	header .wp-block-buttons,
+	[data-area="header"] .wp-block-buttons {
+		display: none !important;
+	}
+
+	/* Compact dark mode toggle on mobile */
+	header .dark-mode-toggle,
+	[data-area="header"] .dark-mode-toggle {
+		width: 36px;
+		height: 36px;
+	}
+
+	/* Tighten header padding on mobile */
+	header > .wp-block-group,
+	[data-area="header"] > .wp-block-group {
+		padding-top: var(--wp--preset--spacing--20) !important;
+		padding-bottom: var(--wp--preset--spacing--20) !important;
+	}
+
+	/* Reduce site title size on mobile */
+	header .wp-block-site-title,
+	[data-area="header"] .wp-block-site-title {
+		font-size: clamp(1.1rem, 5vw, 1.5rem) !important;
+	}
+
+	/* Tighten gap between right-side header items */
+	header .wp-block-group > .wp-block-group:last-child,
+	[data-area="header"] .wp-block-group > .wp-block-group:last-child {
+		gap: 0.5rem !important;
+	}
+
+	/* --- Hero section — reduce padding on mobile --- */
+	.has-warm-fade-gradient-background {
+		padding-top: var(--wp--preset--spacing--50) !important;
+		padding-bottom: var(--wp--preset--spacing--50) !important;
+		padding-left: var(--wp--preset--spacing--40) !important;
+		padding-right: var(--wp--preset--spacing--40) !important;
+	}
+
+	/* --- Forms --- */
 	.cp-form-row {
 		grid-template-columns: 1fr;
 	}
@@ -239,6 +527,17 @@ img {
 
 	.cp-newsletter-row button {
 		align-self: stretch;
+	}
+
+	/* --- Disable reveal animations on mobile for performance --- */
+	.cp-reveal {
+		opacity: 1 !important;
+		animation: none !important;
+	}
+
+	.cp-reveal > .wp-block-columns > .wp-block-column {
+		opacity: 1 !important;
+		animation: none !important;
 	}
 }
 
@@ -260,7 +559,7 @@ img {
 	top: -100%;
 	left: 0;
 	background: var(--wp--preset--color--copper);
-	color: var(--wp--preset--color--white);
+	color: #FFFFFF;
 	padding: 0.5rem 1rem;
 	z-index: 9999;
 	font-family: var(--wp--preset--font-family--heading);
@@ -268,4 +567,19 @@ img {
 
 .skip-link:focus {
 	top: 0;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	html {
+		scroll-behavior: auto;
+	}
 }

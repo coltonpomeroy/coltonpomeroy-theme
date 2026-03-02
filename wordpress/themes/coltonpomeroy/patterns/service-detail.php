@@ -15,10 +15,6 @@
 
 		<!-- wp:column {"verticalAlignment":"top","width":"60%"} -->
 		<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:60%">
-			<!-- wp:paragraph {"textColor":"copper","fontSize":"xx-large"} -->
-			<p class="has-copper-color has-text-color has-xx-large-font-size">&#128187;</p>
-			<!-- /wp:paragraph -->
-
 			<!-- wp:heading {"level":3,"fontFamily":"heading","fontSize":"xx-large"} -->
 			<h3 class="wp-block-heading has-heading-font-family has-xx-large-font-size">Custom Web Development</h3>
 			<!-- /wp:heading -->

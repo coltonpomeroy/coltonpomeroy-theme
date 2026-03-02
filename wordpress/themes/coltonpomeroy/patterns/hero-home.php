@@ -49,11 +49,14 @@
 
 		<!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%">
-			<!-- wp:image {"className":"cp-hero-image","style":{"border":{"radius":"16px"}},"sizeSlug":"large"} -->
-			<figure class="wp-block-image size-large cp-hero-image" style="border-radius:16px">
-				<img src="" alt="Colton Pomeroy — Senior Software Engineer"/>
-			</figure>
-			<!-- /wp:image -->
+			<!-- wp:html -->
+			<div class="cp-hero-portrait">
+				<div class="cp-hero-portrait__frame">
+					<img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/headshot.jpg' ) ); ?>" alt="Colton Pomeroy — Senior Software Engineer and Web Designer" width="800" height="800" loading="eager"/>
+				</div>
+				<div class="cp-hero-portrait__accent" aria-hidden="true"></div>
+			</div>
+			<!-- /wp:html -->
 		</div>
 		<!-- /wp:column -->
 
