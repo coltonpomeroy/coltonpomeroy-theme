@@ -24,9 +24,9 @@
 			<p class="has-gray-500-color has-text-color has-medium-font-size">Tell me about your project. I typically respond within 24 hours.</p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:shortcode -->
-			[wpforms id="34"]
-			<!-- /wp:shortcode -->
+			<!-- wp:html -->
+			<?php echo do_shortcode( '[wpforms id="34"]' ); ?>
+			<!-- /wp:html -->
 
 		</div>
 		<!-- /wp:column -->
