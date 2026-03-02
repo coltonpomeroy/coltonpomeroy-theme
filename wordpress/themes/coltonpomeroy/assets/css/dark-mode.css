@@ -1,0 +1,230 @@
+/* ==========================================================================
+   Colton Pomeroy Theme — Dark Mode
+   Overrides for prefers-color-scheme and manual [data-theme="dark"] toggle.
+
+   Contrast strategy:
+   - Base background:  #121212 (near black)
+   - Surface (cards):  #1E1E1E (clearly lifted)
+   - Elevated surface: #262626 (hover states, inputs)
+   - Borders:          #444444 (visible but subtle)
+   - Secondary text:   #B0ACA4 (WCAG AA on #121212)
+   - Primary text:     #F5F2EB (high contrast cream)
+   - Copper accent:      #C4763B (buttons), #CC8B55 (text, WCAG-boosted)
+   - Navy/charcoal sections: scoped overrides restore light text values
+     so dark-background sections keep readable contrast after inversion.
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--wp--preset--color--cream: #121212;
+		--wp--preset--color--charcoal: #F5F2EB;
+		--wp--preset--color--white: #1E1E1E;
+		--wp--preset--color--gray-50: #181818;
+		--wp--preset--color--gray-100: #1E1E1E;
+		--wp--preset--color--gray-200: #444444;
+		--wp--preset--color--gray-400: #999490;
+		--wp--preset--color--gray-500: #B0ACA4;
+		--wp--preset--color--gray-900: #0A0A0A;
+
+		color-scheme: dark;
+	}
+
+	:root:not([data-theme="light"]) img {
+		opacity: 0.92;
+	}
+
+	:root:not([data-theme="light"]) .dark-mode-toggle {
+		border-color: #444444;
+		color: #F5F2EB;
+	}
+
+	:root:not([data-theme="light"]) .dark-mode-toggle:hover {
+		background-color: #262626;
+		border-color: var(--wp--preset--color--copper);
+	}
+
+	:root:not([data-theme="light"]) .cp-service-card,
+	:root:not([data-theme="light"]) .cp-post-card,
+	:root:not([data-theme="light"]) .cp-portfolio-card {
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	}
+
+	:root:not([data-theme="light"]) .cp-service-card:hover,
+	:root:not([data-theme="light"]) .cp-post-card:hover,
+	:root:not([data-theme="light"]) .cp-portfolio-card:hover {
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+	}
+
+	:root:not([data-theme="light"]) .cp-form-field input,
+	:root:not([data-theme="light"]) .cp-form-field select,
+	:root:not([data-theme="light"]) .cp-form-field textarea,
+	:root:not([data-theme="light"]) .cp-newsletter-row input[type="email"] {
+		background: #1E1E1E;
+		border-color: #444444;
+		color: #F5F2EB;
+	}
+
+	:root:not([data-theme="light"]) .cp-form-field input:focus,
+	:root:not([data-theme="light"]) .cp-form-field select:focus,
+	:root:not([data-theme="light"]) .cp-form-field textarea:focus,
+	:root:not([data-theme="light"]) .cp-newsletter-row input[type="email"]:focus {
+		border-color: var(--wp--preset--color--copper);
+		box-shadow: 0 0 0 3px rgba(196, 118, 59, 0.2);
+	}
+
+	:root:not([data-theme="light"]) .cp-submit-btn,
+	:root:not([data-theme="light"]) .cp-newsletter-row button {
+		box-shadow: 0 2px 8px rgba(196, 118, 59, 0.25);
+	}
+
+	:root:not([data-theme="light"]) .cp-form-status.error {
+		color: #ef5350;
+	}
+
+	:root:not([data-theme="light"]) .cp-scroll-top {
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+	}
+
+	/* Override hardcoded gradients from theme.json */
+	:root:not([data-theme="light"]) .has-warm-fade-gradient-background {
+		background: linear-gradient(135deg, #181818 0%, #1E1E1E 100%) !important;
+	}
+
+	:root:not([data-theme="light"]) .has-copper-glow-gradient-background {
+		background: linear-gradient(135deg, #C4763B 0%, #D4956A 100%) !important;
+	}
+
+	:root:not([data-theme="light"]) .has-navy-depth-gradient-background {
+		background: linear-gradient(180deg, #1B2A4A 0%, #121212 100%) !important;
+	}
+
+	/*
+	 * Dark-background sections: restore light-mode text values.
+	 * Navy and charcoal sections are already dark — inverting text colors
+	 * to dark values destroys contrast. Scope the original light palette
+	 * so text remains readable.
+	 *
+	 * Contrast ratios (all AA+ for small text):
+	 *   white    #FFFFFF on charcoal #2C2C2C = 12.6:1  AAA
+	 *   gray-100 #F0EDE6 on navy    #1B2A4A = 12.1:1  AAA
+	 *   gray-200 #E2DDD3 on navy    #1B2A4A = 10.5:1  AAA
+	 *   gray-400 #B5B0A8 on charcoal #2C2C2C =  5.9:1  AA
+	 *   gray-500 #A8A39A on charcoal #2C2C2C =  5.1:1  AA
+	 */
+	:root:not([data-theme="light"]) .has-navy-background-color,
+	:root:not([data-theme="light"]) .has-charcoal-background-color {
+		--wp--preset--color--white: #FFFFFF;
+		--wp--preset--color--cream: #FBF7F0;
+		--wp--preset--color--charcoal: #2C2C2C;
+		--wp--preset--color--gray-100: #F0EDE6;
+		--wp--preset--color--gray-200: #E2DDD3;
+		--wp--preset--color--gray-400: #B5B0A8;
+		--wp--preset--color--gray-500: #A8A39A;
+	}
+
+	/* Brighten copper text for better contrast on dark surfaces (5.3:1 on #1E1E1E) */
+	:root:not([data-theme="light"]) .has-copper-color {
+		color: #CC8B55;
+	}
+}
+
+/* Manual dark mode via toggle */
+[data-theme="dark"] {
+	--wp--preset--color--cream: #121212;
+	--wp--preset--color--charcoal: #F5F2EB;
+	--wp--preset--color--white: #1E1E1E;
+	--wp--preset--color--gray-50: #181818;
+	--wp--preset--color--gray-100: #1E1E1E;
+	--wp--preset--color--gray-200: #444444;
+	--wp--preset--color--gray-400: #999490;
+	--wp--preset--color--gray-500: #B0ACA4;
+	--wp--preset--color--gray-900: #0A0A0A;
+
+	color-scheme: dark;
+}
+
+[data-theme="dark"] img {
+	opacity: 0.92;
+}
+
+[data-theme="dark"] .dark-mode-toggle {
+	border-color: #444444;
+	color: #F5F2EB;
+}
+
+[data-theme="dark"] .dark-mode-toggle:hover {
+	background-color: #262626;
+	border-color: var(--wp--preset--color--copper);
+}
+
+[data-theme="dark"] .cp-service-card,
+[data-theme="dark"] .cp-post-card,
+[data-theme="dark"] .cp-portfolio-card {
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .cp-service-card:hover,
+[data-theme="dark"] .cp-post-card:hover,
+[data-theme="dark"] .cp-portfolio-card:hover {
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .cp-form-field input,
+[data-theme="dark"] .cp-form-field select,
+[data-theme="dark"] .cp-form-field textarea,
+[data-theme="dark"] .cp-newsletter-row input[type="email"] {
+	background: #1E1E1E;
+	border-color: #444444;
+	color: #F5F2EB;
+}
+
+[data-theme="dark"] .cp-form-field input:focus,
+[data-theme="dark"] .cp-form-field select:focus,
+[data-theme="dark"] .cp-form-field textarea:focus,
+[data-theme="dark"] .cp-newsletter-row input[type="email"]:focus {
+	border-color: var(--wp--preset--color--copper);
+	box-shadow: 0 0 0 3px rgba(196, 118, 59, 0.2);
+}
+
+[data-theme="dark"] .cp-submit-btn,
+[data-theme="dark"] .cp-newsletter-row button {
+	box-shadow: 0 2px 8px rgba(196, 118, 59, 0.25);
+}
+
+[data-theme="dark"] .cp-form-status.error {
+	color: #ef5350;
+}
+
+[data-theme="dark"] .cp-scroll-top {
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Override hardcoded gradients from theme.json */
+[data-theme="dark"] .has-warm-fade-gradient-background {
+	background: linear-gradient(135deg, #181818 0%, #1E1E1E 100%) !important;
+}
+
+[data-theme="dark"] .has-copper-glow-gradient-background {
+	background: linear-gradient(135deg, #C4763B 0%, #D4956A 100%) !important;
+}
+
+[data-theme="dark"] .has-navy-depth-gradient-background {
+	background: linear-gradient(180deg, #1B2A4A 0%, #121212 100%) !important;
+}
+
+/* Dark-background sections: restore light-mode text values (see media query block for ratios) */
+[data-theme="dark"] .has-navy-background-color,
+[data-theme="dark"] .has-charcoal-background-color {
+	--wp--preset--color--white: #FFFFFF;
+	--wp--preset--color--cream: #FBF7F0;
+	--wp--preset--color--charcoal: #2C2C2C;
+	--wp--preset--color--gray-100: #F0EDE6;
+	--wp--preset--color--gray-200: #E2DDD3;
+	--wp--preset--color--gray-400: #B5B0A8;
+	--wp--preset--color--gray-500: #A8A39A;
+}
+
+/* Brighten copper text for better contrast on dark surfaces (5.3:1 on #1E1E1E) */
+[data-theme="dark"] .has-copper-color {
+	color: #CC8B55;
+}

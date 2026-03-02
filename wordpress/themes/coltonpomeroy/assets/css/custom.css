@@ -1,0 +1,271 @@
+/* ==========================================================================
+   Colton Pomeroy Theme — Custom Styles
+   Supplements theme.json; handles animations, layout, forms, and components.
+   ========================================================================== */
+
+/* ---------- Smooth scroll & base ---------- */
+html {
+	scroll-behavior: smooth;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* ---------- Header ---------- */
+.dark-mode-toggle {
+	background: none;
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: 99px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.1rem;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.dark-mode-toggle:hover {
+	border-color: var(--wp--preset--color--copper);
+	background-color: var(--wp--preset--color--gray-50);
+}
+
+.toggle-icon-dark {
+	display: none;
+}
+
+[data-theme="dark"] .toggle-icon-light {
+	display: none;
+}
+
+[data-theme="dark"] .toggle-icon-dark {
+	display: inline;
+}
+
+/* ---------- Service Cards ---------- */
+.cp-service-card {
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-shadow: 0 1px 3px rgba(44, 44, 44, 0.06);
+}
+
+.cp-service-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 30px rgba(44, 44, 44, 0.12);
+}
+
+/* ---------- Post Cards ---------- */
+.cp-post-card {
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-shadow: 0 1px 3px rgba(44, 44, 44, 0.06);
+	overflow: hidden;
+}
+
+.cp-post-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(44, 44, 44, 0.08);
+}
+
+/* ---------- Portfolio Cards ---------- */
+.cp-portfolio-card {
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-shadow: 0 1px 3px rgba(44, 44, 44, 0.06);
+	overflow: hidden;
+}
+
+.cp-portfolio-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 30px rgba(44, 44, 44, 0.12);
+}
+
+/* ---------- Tech Badges ---------- */
+.cp-tech-badge {
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cp-tech-badge:hover {
+	border-color: var(--wp--preset--color--copper) !important;
+	box-shadow: 0 2px 8px rgba(196, 118, 59, 0.15);
+}
+
+/* ---------- Contact Form ---------- */
+.cp-contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.cp-form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.25rem;
+}
+
+.cp-form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.cp-form-field label {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: var(--wp--preset--color--charcoal);
+}
+
+.cp-form-field label .required {
+	color: var(--wp--preset--color--copper);
+}
+
+.cp-form-field input,
+.cp-form-field select,
+.cp-form-field textarea {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 1rem;
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: 8px;
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--charcoal);
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cp-form-field input:focus,
+.cp-form-field select:focus,
+.cp-form-field textarea:focus {
+	outline: none;
+	border-color: var(--wp--preset--color--copper);
+	box-shadow: 0 0 0 3px rgba(196, 118, 59, 0.1);
+}
+
+.cp-form-field textarea {
+	resize: vertical;
+}
+
+.cp-submit-btn {
+	font-family: var(--wp--preset--font-family--heading);
+	font-weight: 600;
+	font-size: 1rem;
+	padding: 0.85rem 2rem;
+	background: var(--wp--preset--color--copper);
+	color: var(--wp--preset--color--white);
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	align-self: flex-start;
+}
+
+.cp-submit-btn:hover {
+	background: var(--wp--preset--color--copper-dark);
+}
+
+.cp-submit-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.cp-form-status {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 0.875rem;
+	padding: 0.5rem 0;
+}
+
+.cp-form-status.success {
+	color: var(--wp--preset--color--sage);
+}
+
+.cp-form-status.error {
+	color: #c0392b;
+}
+
+/* ---------- Newsletter Form ---------- */
+.cp-newsletter-form {
+	margin-top: 1rem;
+}
+
+.cp-newsletter-row {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.cp-newsletter-row input[type="email"] {
+	flex: 1;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 0.875rem;
+	padding: 0.65rem 1rem;
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: 8px;
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--charcoal);
+}
+
+.cp-newsletter-row input[type="email"]:focus {
+	outline: none;
+	border-color: var(--wp--preset--color--copper);
+	box-shadow: 0 0 0 3px rgba(196, 118, 59, 0.1);
+}
+
+.cp-newsletter-row button {
+	font-family: var(--wp--preset--font-family--heading);
+	font-weight: 600;
+	font-size: 0.875rem;
+	padding: 0.65rem 1.25rem;
+	background: var(--wp--preset--color--copper);
+	color: var(--wp--preset--color--white);
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	white-space: nowrap;
+}
+
+.cp-newsletter-row button:hover {
+	background: var(--wp--preset--color--copper-dark);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 782px) {
+	.cp-form-row {
+		grid-template-columns: 1fr;
+	}
+
+	.cp-newsletter-row {
+		flex-direction: column;
+	}
+
+	.cp-newsletter-row button {
+		align-self: stretch;
+	}
+}
+
+/* ---------- Selection color ---------- */
+::selection {
+	background: rgba(196, 118, 59, 0.2);
+	color: var(--wp--preset--color--charcoal);
+}
+
+/* ---------- Focus visible ---------- */
+:focus-visible {
+	outline: 2px solid var(--wp--preset--color--copper);
+	outline-offset: 2px;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+	position: absolute;
+	top: -100%;
+	left: 0;
+	background: var(--wp--preset--color--copper);
+	color: var(--wp--preset--color--white);
+	padding: 0.5rem 1rem;
+	z-index: 9999;
+	font-family: var(--wp--preset--font-family--heading);
+}
+
+.skip-link:focus {
+	top: 0;
+}

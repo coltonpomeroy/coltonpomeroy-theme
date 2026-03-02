@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+._*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# WordPress
+*.log
+wp-config.php
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Node (if ever needed)
+node_modules/
+package-lock.json
+
+# Misc
+*.bak
+*.tmp
+Thumbs.db

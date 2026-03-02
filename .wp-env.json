@@ -1,0 +1,10 @@
+{
+	"core": null,
+	"themes": [
+		"./wordpress/themes/coltonpomeroy"
+	],
+	"config": {
+		"WP_DEBUG": true,
+		"WP_DEBUG_LOG": true
+	}
+}

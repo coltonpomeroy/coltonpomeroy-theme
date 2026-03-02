@@ -1,0 +1,41 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+
+	<!-- wp:query-title {"type":"search","fontFamily":"display","fontSize":"huge"} /-->
+
+	<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Refine your search...","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"backgroundColor":"copper","textColor":"white","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}}} /-->
+
+	<!-- wp:query {"queryId":4,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"relevance","inherit":true}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template {"layout":{"type":"default"}} -->
+
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","padding":{"bottom":"var:preset|spacing|40"},"margin":{"bottom":"var:preset|spacing|40"}},"border":{"bottom":{"color":"var:preset|color|gray-200","width":"1px"}}},"layout":{"type":"constrained"}} -->
+			<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--gray-200);border-bottom-width:1px;margin-bottom:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
+				<!-- wp:post-title {"level":2,"isLink":true,"style":{"typography":{"textDecoration":"none"}},"fontFamily":"heading","fontSize":"x-large"} /-->
+				<!-- wp:post-date {"textColor":"gray-500","fontSize":"small"} /-->
+				<!-- wp:post-excerpt {"excerptLength":30} /-->
+			</div>
+			<!-- /wp:group -->
+
+		<!-- /wp:post-template -->
+
+		<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
+			<!-- wp:query-pagination-previous /-->
+			<!-- wp:query-pagination-numbers /-->
+			<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+
+		<!-- wp:query-no-results -->
+			<!-- wp:paragraph {"align":"center","textColor":"gray-500","fontSize":"large"} -->
+			<p class="has-text-align-center has-gray-500-color has-text-color has-large-font-size">No results found. Try a different search term.</p>
+			<!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
+	</div>
+	<!-- /wp:query -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
