@@ -22,7 +22,7 @@
 	<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
 		<!-- wp:button {"backgroundColor":"copper","textColor":"white","fontSize":"medium"} -->
 		<div class="wp-block-button has-custom-font-size has-medium-font-size">
-			<a class="wp-block-button__link has-white-color has-copper-background-color has-text-color has-background wp-element-button" href="/contact">Start a Conversation</a>
+			<a class="wp-block-button__link has-white-color has-copper-background-color has-text-color has-background wp-element-button" href="#cp-contact-form">Start a Conversation</a>
 		</div>
 		<!-- /wp:button -->
 	</div>

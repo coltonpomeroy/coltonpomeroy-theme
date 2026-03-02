@@ -7,8 +7,8 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
-<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+<!-- wp:group {"align":"full","anchor":"cp-contact-form","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
+<div class="wp-block-group alignfull" id="cp-contact-form" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
 
 	<!-- wp:columns {"verticalAlignment":"top","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|70"}}}} -->
 	<div class="wp-block-columns are-vertically-aligned-top">
@@ -24,51 +24,9 @@
 			<p class="has-gray-500-color has-text-color has-medium-font-size">Tell me about your project. I typically respond within 24 hours.</p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:html -->
-			<form class="cp-contact-form" id="cp-contact-form">
-				<div class="cp-form-row">
-					<div class="cp-form-field">
-						<label for="cp-name">Name <span class="required">*</span></label>
-						<input type="text" id="cp-name" name="name" required placeholder="Your name">
-					</div>
-					<div class="cp-form-field">
-						<label for="cp-email">Email <span class="required">*</span></label>
-						<input type="email" id="cp-email" name="email" required placeholder="you@example.com">
-					</div>
-				</div>
-				<div class="cp-form-row">
-					<div class="cp-form-field">
-						<label for="cp-project-type">Project Type</label>
-						<select id="cp-project-type" name="project_type">
-							<option value="">Select a type...</option>
-							<option value="Website">Website</option>
-							<option value="Web App">Web Application</option>
-							<option value="Mobile App">Mobile App</option>
-							<option value="WordPress">WordPress</option>
-							<option value="Consulting">Technical Consulting</option>
-							<option value="Other">Other</option>
-						</select>
-					</div>
-					<div class="cp-form-field">
-						<label for="cp-budget">Budget Range</label>
-						<select id="cp-budget" name="budget">
-							<option value="">Select a range...</option>
-							<option value="< $5k">Under $5,000</option>
-							<option value="$5k-$15k">$5,000 - $15,000</option>
-							<option value="$15k-$50k">$15,000 - $50,000</option>
-							<option value="$50k+">$50,000+</option>
-							<option value="Not sure">Not sure yet</option>
-						</select>
-					</div>
-				</div>
-				<div class="cp-form-field">
-					<label for="cp-message">Message <span class="required">*</span></label>
-					<textarea id="cp-message" name="message" required rows="5" placeholder="Tell me about your project, timeline, and goals..."></textarea>
-				</div>
-				<button type="submit" class="cp-submit-btn">Send Message</button>
-				<div class="cp-form-status" aria-live="polite"></div>
-			</form>
-			<!-- /wp:html -->
+			<!-- wp:shortcode -->
+			[wpforms id="34"]
+			<!-- /wp:shortcode -->
 
 		</div>
 		<!-- /wp:column -->
@@ -86,10 +44,10 @@
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"constrained"}} -->
 				<div class="wp-block-group">
 					<!-- wp:paragraph {"style":{"typography":{"fontWeight":"600"}},"fontFamily":"heading","fontSize":"small"} -->
-					<p class="has-heading-font-family has-small-font-size" style="font-weight:600">Email</p>
+					<p class="has-heading-font-family has-small-font-size" style="font-weight:600">Response Time</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:paragraph {"textColor":"gray-500","fontSize":"small"} -->
-					<p class="has-gray-500-color has-text-color has-small-font-size"><a href="mailto:colton@coltonpomeroy.com">colton@coltonpomeroy.com</a></p>
+					<p class="has-gray-500-color has-text-color has-small-font-size">Typically within 24 hours</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
