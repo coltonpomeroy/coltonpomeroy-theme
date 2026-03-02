@@ -38,7 +38,7 @@
 
 				<!-- wp:button {"className":"is-style-outline","fontSize":"medium"} -->
 				<div class="wp-block-button has-custom-font-size is-style-outline has-medium-font-size">
-					<a class="wp-block-button__link wp-element-button" href="/contact">Let's Talk</a>
+					<a class="wp-block-button__link wp-element-button" href="#cp-contact-form">Let's Talk</a>
 				</div>
 				<!-- /wp:button -->
 			</div>
