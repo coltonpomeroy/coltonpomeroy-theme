@@ -304,40 +304,54 @@ body,
 	transition: border-color 0.2s ease;
 }
 
-/* ---------- Contact Form ---------- */
-.cp-contact-form {
+/* ---------- Contact Form (WPForms) ---------- */
+
+/* Form layout */
+.wpforms-container .wpforms-form {
 	display: flex;
 	flex-direction: column;
-	gap: 1.25rem;
+	gap: 0.25rem;
 }
 
-.cp-form-row {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 1.25rem;
+/* Put Project Type + Budget side by side */
+.wpforms-container .wpforms-form .wpforms-field-select {
+	display: inline-block;
+	width: calc(50% - 10px);
+	vertical-align: top;
 }
 
-.cp-form-field {
-	display: flex;
-	flex-direction: column;
-	gap: 0.35rem;
+.wpforms-container .wpforms-form .wpforms-field-select:nth-of-type(1) {
+	margin-right: 20px;
 }
 
-.cp-form-field label {
+/* Labels */
+.wpforms-container .wpforms-form .wpforms-field-label {
 	font-family: var(--wp--preset--font-family--heading);
 	font-size: 0.875rem;
-	font-weight: 500;
+	font-weight: 600;
 	color: var(--wp--preset--color--charcoal);
-	transition: color 0.2s ease;
+	margin-bottom: 0.35rem;
+	letter-spacing: 0.01em;
 }
 
-.cp-form-field label .required {
+/* Sub-labels (First / Last) */
+.wpforms-container .wpforms-form .wpforms-field-sublabel {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 0.75rem;
+	color: var(--wp--preset--color--gray-500);
+	margin-top: 0.25rem;
+}
+
+/* Required asterisk */
+.wpforms-container .wpforms-required-label {
 	color: var(--wp--preset--color--copper);
 }
 
-.cp-form-field input,
-.cp-form-field select,
-.cp-form-field textarea {
+/* All inputs, selects, textareas */
+.wpforms-container .wpforms-form input[type="text"],
+.wpforms-container .wpforms-form input[type="email"],
+.wpforms-container .wpforms-form select,
+.wpforms-container .wpforms-form textarea {
 	font-family: var(--wp--preset--font-family--heading);
 	font-size: 1rem;
 	padding: 0.75rem 1rem;
@@ -345,65 +359,96 @@ body,
 	border-radius: 8px;
 	background: var(--wp--preset--color--white);
 	color: var(--wp--preset--color--charcoal);
+	width: 100%;
 	transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+	-webkit-appearance: none;
+	appearance: none;
 }
 
-.cp-form-field input:focus,
-.cp-form-field select:focus,
-.cp-form-field textarea:focus {
+/* Custom select arrow */
+.wpforms-container .wpforms-form select {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236B6760' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 1rem center;
+	padding-right: 2.5rem;
+}
+
+/* Placeholder text color for selects */
+.wpforms-container .wpforms-form select option:first-child {
+	color: var(--wp--preset--color--gray-500);
+}
+
+/* Focus states */
+.wpforms-container .wpforms-form input[type="text"]:focus,
+.wpforms-container .wpforms-form input[type="email"]:focus,
+.wpforms-container .wpforms-form select:focus,
+.wpforms-container .wpforms-form textarea:focus {
 	outline: none;
 	border-color: var(--wp--preset--color--copper);
 	box-shadow: 0 0 0 3px rgba(196, 118, 59, 0.1);
 }
 
-.cp-form-field textarea {
+/* Textarea */
+.wpforms-container .wpforms-form textarea {
 	resize: vertical;
+	min-height: 140px;
 }
 
-.cp-submit-btn {
+/* Submit button */
+.wpforms-container .wpforms-form .wpforms-submit-container {
+	margin-top: 0.5rem;
+}
+
+.wpforms-container .wpforms-form button[type="submit"],
+.wpforms-container .wpforms-form .wpforms-submit {
 	font-family: var(--wp--preset--font-family--heading);
 	font-weight: 600;
 	font-size: 1rem;
-	padding: 0.85rem 2rem;
-	background: var(--wp--preset--color--copper);
-	color: #FFFFFF;
+	padding: 0.85rem 2.5rem;
+	background: var(--wp--preset--color--copper) !important;
+	color: #FFFFFF !important;
 	border: none;
 	border-radius: 8px;
 	cursor: pointer;
 	transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-	align-self: flex-start;
+	letter-spacing: 0.01em;
 }
 
-.cp-submit-btn:hover {
-	background: var(--wp--preset--color--copper-dark);
+.wpforms-container .wpforms-form button[type="submit"]:hover,
+.wpforms-container .wpforms-form .wpforms-submit:hover {
+	background: var(--wp--preset--color--copper-dark) !important;
 	transform: translateY(-1px);
 	box-shadow: 0 4px 12px rgba(196, 118, 59, 0.25);
 }
 
-.cp-submit-btn:active {
+.wpforms-container .wpforms-form button[type="submit"]:active,
+.wpforms-container .wpforms-form .wpforms-submit:active {
 	transform: translateY(0);
 	box-shadow: none;
 }
 
-.cp-submit-btn:disabled {
-	opacity: 0.6;
-	cursor: not-allowed;
-	transform: none;
-	box-shadow: none;
-}
-
-.cp-form-status {
+/* Confirmation message */
+.wpforms-confirmation-container-full {
 	font-family: var(--wp--preset--font-family--heading);
-	font-size: 0.875rem;
-	padding: 0.5rem 0;
+	background: rgba(130, 140, 110, 0.08) !important;
+	border: 1px solid var(--wp--preset--color--sage) !important;
+	border-radius: 8px;
+	padding: 1.25rem 1.5rem !important;
+	color: var(--wp--preset--color--charcoal);
 }
 
-.cp-form-status.success {
-	color: var(--wp--preset--color--sage);
-}
-
-.cp-form-status.error {
+/* Validation errors */
+.wpforms-container .wpforms-form .wpforms-error {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 0.8rem;
 	color: #c0392b;
+	margin-top: 0.25rem;
+}
+
+.wpforms-container .wpforms-form .wpforms-field.wpforms-has-error input,
+.wpforms-container .wpforms-form .wpforms-field.wpforms-has-error select,
+.wpforms-container .wpforms-form .wpforms-field.wpforms-has-error textarea {
+	border-color: #c0392b;
 }
 
 /* ---------- Newsletter Form ---------- */
@@ -517,8 +562,13 @@ body,
 	}
 
 	/* --- Forms --- */
-	.cp-form-row {
-		grid-template-columns: 1fr;
+	.wpforms-container .wpforms-form .wpforms-field-select {
+		display: block;
+		width: 100%;
+	}
+
+	.wpforms-container .wpforms-form .wpforms-field-select:nth-of-type(1) {
+		margin-right: 0;
 	}
 
 	.cp-newsletter-row {
