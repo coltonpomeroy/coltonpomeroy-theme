@@ -451,6 +451,85 @@ body,
 	border-color: #c0392b;
 }
 
+/* ---------- Contact Sidebar Portfolio Preview ---------- */
+.cp-portfolio-preview {
+	display: block;
+	text-decoration: none;
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid var(--wp--preset--color--gray-200);
+	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+	box-shadow: 0 2px 8px rgba(44, 44, 44, 0.06);
+}
+
+.cp-portfolio-preview:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 12px 32px rgba(44, 44, 44, 0.12);
+}
+
+/* Faux browser chrome */
+.cp-portfolio-preview__browser {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 0.75rem;
+	background: var(--wp--preset--color--gray-50);
+	border-bottom: 1px solid var(--wp--preset--color--gray-200);
+}
+
+.cp-portfolio-preview__dots {
+	display: flex;
+	gap: 4px;
+}
+
+.cp-portfolio-preview__dots span {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--wp--preset--color--gray-200);
+}
+
+.cp-portfolio-preview__url {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 0.7rem;
+	color: var(--wp--preset--color--gray-500);
+	letter-spacing: 0.01em;
+}
+
+.cp-portfolio-preview img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.cp-portfolio-preview__caption {
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
+	padding: 0.75rem 1rem;
+	background: var(--wp--preset--color--white);
+}
+
+.cp-portfolio-preview__caption strong {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--wp--preset--color--charcoal);
+}
+
+.cp-portfolio-preview__caption span {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 0.75rem;
+	color: var(--wp--preset--color--gray-500);
+}
+
+/* Hide sidebar on mobile — form takes full width */
+@media (max-width: 782px) {
+	.cp-contact-sidebar {
+		display: none;
+	}
+}
+
 /* ---------- Newsletter Form ---------- */
 .cp-newsletter-form {
 	margin-top: 1rem;
